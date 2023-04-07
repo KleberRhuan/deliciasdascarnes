@@ -1,4 +1,3 @@
-
 export function createItemsDiv(product, divBody, index){
 
     const divProduct = document.createElement('div');
@@ -11,20 +10,24 @@ export function createItemsDiv(product, divBody, index){
     const bttnCart = document.createElement('button');
 
     const bttnSubtract = document.createElement('button');
-    bttnSubtract.classList.add('circle-item');
+    bttnSubtract.classList.add('circle-item', 'circle-item-subtract');
     bttnSubtract.type = 'button';
     bttnSubtract.innerHTML = '<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.125 1.75H0.875C0.391754 1.75 0 1.35825 0 0.875C0 0.391754 0.391754 0 0.875 0H13.125C13.6082 0 14 0.391754 14 0.875C14 1.35825 13.6082 1.75 13.125 1.75Z" fill="black"/></svg>';
+    bttnSubtract.setAttribute('data-index', index);
+
 
     const divQuantityNumber = document.createElement('div');
     divQuantityNumber.classList.add('circle-item', 'light-border');
-    divQuantityNumber.innerHTML = '<input type="number" name="quantity-product" id="quantity-product-1" value="1" class="input-item-quantity">';
+    divQuantityNumber.innerHTML =  divQuantityNumber.innerHTML = `<input type="number" name="quantity-product" id='quantity-best-product-item-${index}' value="1" class="input-item-quantity">`;
 
     const bttnAdd = document.createElement('button');
-    bttnAdd.classList.add('circle-item');
+    bttnAdd.classList.add('circle-item', 'circle-item-add');
     bttnAdd.type = 'button'
     bttnAdd.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.125 6.125H7.875V0.875C7.875 0.391754 7.48325 0 7 0C6.51675 0 6.125 0.391754 6.125 0.875V6.125H0.875C0.391754 6.125 0 6.51675 0 7C0 7.48325 0.391754 7.875 0.875 7.875H6.125V13.125C6.125 13.6082 6.51675 14 7 14C7.48325 14 7.875 13.6082 7.875 13.125V7.875H13.125C13.6082 7.875 14 7.48325 14 7C14 6.51675 13.6082 6.125 13.125 6.125Z" fill="black"/></svg>';
+    bttnAdd.setAttribute('data-index', index);
 
     divProduct.classList.add('product-item');
+    divProduct.setAttribute('data-index', index);
 
     imgProduct.classList.add('product-item-img');
     imgProduct.src = product.img;
@@ -40,7 +43,7 @@ export function createItemsDiv(product, divBody, index){
 
     divInfo.classList.add('product-info');
     divPrice.classList.add('product-price');
-    divPrice.innerHTML = `<p>Preço/KG</p><p>${product.price}</p>`
+    divPrice.innerHTML = `<p>Preço/KG</p><p>R$ ${product.price.toFixed(2)}</p>`
 
     divInfo.append(divPrice);
 
@@ -49,7 +52,7 @@ export function createItemsDiv(product, divBody, index){
 
     divInfo.append(divQuantity);
 
-    bttnCart.classList.add('bbtn-product-item');
+    bttnCart.classList.add('btn-product-item');
     bttnCart.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
         '                    <path d="M3.58805 12C4.15423 12 4.61321 11.5523 4.61321 11C4.61321 10.4477 4.15423 10 3.58805 10C3.02187 10 2.56289 10.4477 2.56289 11C2.56289 11.5523 3.02187 12 3.58805 12Z" fill="white"/>\n' +
         '                    <path d="M8.71383 12C9.28001 12 9.73898 11.5523 9.73898 11C9.73898 10.4477 9.28001 10 8.71383 10C8.14765 10 7.68867 10.4477 7.68867 11C7.68867 11.5523 8.14765 12 8.71383 12Z" fill="white"/>\n' +
@@ -68,32 +71,35 @@ export function createItemsDiv(product, divBody, index){
 
 
 
-export function createItemsExoticDiv(product){
+export function createItemsExoticDiv(product, divBody, index) {
 
     const divProduct = document.createElement('div');
     const imgProduct = document.createElement('img');
     const divTitle = document.createElement('div');
-    const itemTitle = document.createElement('h3');
     const divInfo = document.createElement('div');
     const divPrice = document.createElement('div');
     const divQuantity = document.createElement('div');
     const bttnCart = document.createElement('button');
 
     const bttnSubtract = document.createElement('button');
-    bttnSubtract.classList.add('circle-item');
+    bttnSubtract.classList.add('circle-item', 'circle-item-subtract');
     bttnSubtract.type = 'button';
     bttnSubtract.innerHTML = '<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.125 1.75H0.875C0.391754 1.75 0 1.35825 0 0.875C0 0.391754 0.391754 0 0.875 0H13.125C13.6082 0 14 0.391754 14 0.875C14 1.35825 13.6082 1.75 13.125 1.75Z" fill="black"/></svg>';
+    bttnSubtract.setAttribute('data-index', index);
+
 
     const divQuantityNumber = document.createElement('div');
     divQuantityNumber.classList.add('circle-item', 'light-border');
-    divQuantityNumber.innerHTML = '<input type="number" name="quantity-product" id="quantity-product-1" value="1" class="input-item-quantity">';
+    divQuantityNumber.innerHTML =  divQuantityNumber.innerHTML = `<input type="number" name="quantity-product" id='quantity-best-product-item-${index}' value="1" class="input-item-quantity">`;
 
     const bttnAdd = document.createElement('button');
-    bttnAdd.classList.add('circle-item');
+    bttnAdd.classList.add('circle-item', 'circle-item-add');
     bttnAdd.type = 'button'
     bttnAdd.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.125 6.125H7.875V0.875C7.875 0.391754 7.48325 0 7 0C6.51675 0 6.125 0.391754 6.125 0.875V6.125H0.875C0.391754 6.125 0 6.51675 0 7C0 7.48325 0.391754 7.875 0.875 7.875H6.125V13.125C6.125 13.6082 6.51675 14 7 14C7.48325 14 7.875 13.6082 7.875 13.125V7.875H13.125C13.6082 7.875 14 7.48325 14 7C14 6.51675 13.6082 6.125 13.125 6.125Z" fill="black"/></svg>';
+    bttnAdd.setAttribute('data-index', index);
 
     divProduct.classList.add('product-item');
+    divProduct.setAttribute('data-index', index);
 
     imgProduct.classList.add('product-item-img');
     imgProduct.src = product.img;
@@ -108,7 +114,7 @@ export function createItemsExoticDiv(product){
 
     divInfo.classList.add('product-info');
     divPrice.classList.add('product-price');
-    divPrice.innerHTML = `<p>Preço/KG</p><p>${product.price}</p>`;
+    divPrice.innerHTML = `<p>Preço/KG</p><p>R$ ${product.price.toFixed(2)}</p>`
 
     divInfo.append(divPrice);
 
@@ -117,7 +123,7 @@ export function createItemsExoticDiv(product){
 
     divInfo.append(divQuantity);
 
-    bttnCart.classList.add('bbtn-product-item', 'exotic-color');
+    bttnCart.classList.add('btn-product-item', 'exotic-color');
     bttnCart.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
         '                    <path d="M3.58805 12C4.15423 12 4.61321 11.5523 4.61321 11C4.61321 10.4477 4.15423 10 3.58805 10C3.02187 10 2.56289 10.4477 2.56289 11C2.56289 11.5523 3.02187 12 3.58805 12Z" fill="white"/>\n' +
         '                    <path d="M8.71383 12C9.28001 12 9.73898 11.5523 9.73898 11C9.73898 10.4477 9.28001 10 8.71383 10C8.14765 10 7.68867 10.4477 7.68867 11C7.68867 11.5523 8.14765 12 8.71383 12Z" fill="white"/>\n' +
@@ -128,35 +134,42 @@ export function createItemsExoticDiv(product){
     divInfo.append(bttnCart);
 
     divProduct.append(divInfo);
+
+    divProduct.id= `product-exotic-item-${index}`;
+
+    divBody.append(divProduct);
 }
 
 
-export function createItemsFishDiv(product){
+export function createItemsFishDiv(product, divBody, index){
 
     const divProduct = document.createElement('div');
     const imgProduct = document.createElement('img');
     const divTitle = document.createElement('div');
-    const itemTitle = document.createElement('h3');
     const divInfo = document.createElement('div');
     const divPrice = document.createElement('div');
     const divQuantity = document.createElement('div');
     const bttnCart = document.createElement('button');
 
     const bttnSubtract = document.createElement('button');
-    bttnSubtract.classList.add('circle-item');
+    bttnSubtract.classList.add('circle-item', 'circle-item-subtract');
     bttnSubtract.type = 'button';
     bttnSubtract.innerHTML = '<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.125 1.75H0.875C0.391754 1.75 0 1.35825 0 0.875C0 0.391754 0.391754 0 0.875 0H13.125C13.6082 0 14 0.391754 14 0.875C14 1.35825 13.6082 1.75 13.125 1.75Z" fill="black"/></svg>';
+    bttnSubtract.setAttribute('data-index', index);
+
 
     const divQuantityNumber = document.createElement('div');
     divQuantityNumber.classList.add('circle-item', 'light-border');
-    divQuantityNumber.innerHTML = '<input type="number" name="quantity-product" id="quantity-product-1" value="1" class="input-item-quantity">';
+    divQuantityNumber.innerHTML =  divQuantityNumber.innerHTML = `<input type="number" name="quantity-product" id='quantity-best-product-item-${index}' value="1" class="input-item-quantity">`;
 
     const bttnAdd = document.createElement('button');
-    bttnAdd.classList.add('circle-item');
+    bttnAdd.classList.add('circle-item', 'circle-item-add');
     bttnAdd.type = 'button'
     bttnAdd.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.125 6.125H7.875V0.875C7.875 0.391754 7.48325 0 7 0C6.51675 0 6.125 0.391754 6.125 0.875V6.125H0.875C0.391754 6.125 0 6.51675 0 7C0 7.48325 0.391754 7.875 0.875 7.875H6.125V13.125C6.125 13.6082 6.51675 14 7 14C7.48325 14 7.875 13.6082 7.875 13.125V7.875H13.125C13.6082 7.875 14 7.48325 14 7C14 6.51675 13.6082 6.125 13.125 6.125Z" fill="black"/></svg>';
+    bttnAdd.setAttribute('data-index', index);
 
     divProduct.classList.add('product-item');
+    divProduct.setAttribute('data-index', index);
 
     imgProduct.classList.add('product-item-img');
     imgProduct.src = product.img;
@@ -171,7 +184,7 @@ export function createItemsFishDiv(product){
 
     divInfo.classList.add('product-info');
     divPrice.classList.add('product-price');
-    divPrice.innerHTML = `<p>Preço/KG</p><p>${product.price}</p>`
+    divPrice.innerHTML = `<p>Preço/KG</p><p>R$ ${product.price.toFixed(2)}</p>`
 
     divInfo.append(divPrice);
 
@@ -180,7 +193,7 @@ export function createItemsFishDiv(product){
 
     divInfo.append(divQuantity);
 
-    bttnCart.classList.add('bbtn-product-item', 'exotic-color');
+    bttnCart.classList.add('btn-product-item', 'fish-color');
     bttnCart.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
         '                    <path d="M3.58805 12C4.15423 12 4.61321 11.5523 4.61321 11C4.61321 10.4477 4.15423 10 3.58805 10C3.02187 10 2.56289 10.4477 2.56289 11C2.56289 11.5523 3.02187 12 3.58805 12Z" fill="white"/>\n' +
         '                    <path d="M8.71383 12C9.28001 12 9.73898 11.5523 9.73898 11C9.73898 10.4477 9.28001 10 8.71383 10C8.14765 10 7.68867 10.4477 7.68867 11C7.68867 11.5523 8.14765 12 8.71383 12Z" fill="white"/>\n' +
@@ -191,4 +204,91 @@ export function createItemsFishDiv(product){
     divInfo.append(bttnCart);
 
     divProduct.append(divInfo);
+
+    divProduct.id= `product-fish-item-${index}`;
+
+    divBody.append(divProduct);
+}
+
+export function createBestItemsDiv(product, divBody, index) {
+
+    const divProduct = document.createElement('div');
+    const imgProduct = document.createElement('img');
+    const divTitle = document.createElement('div');
+    const divInfo = document.createElement('div');
+    const divPrice = document.createElement('div');
+    const divQuantity = document.createElement('div');
+    const bttnCart = document.createElement('button');
+    const flagImg = document.createElement('img');
+
+    const bttnSubtract = document.createElement('button');
+    bttnSubtract.classList.add('circle-item', 'circle-item-subtract');
+    bttnSubtract.type = 'button';
+    bttnSubtract.innerHTML = '<svg width="14" height="2" viewBox="0 0 14 2" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.125 1.75H0.875C0.391754 1.75 0 1.35825 0 0.875C0 0.391754 0.391754 0 0.875 0H13.125C13.6082 0 14 0.391754 14 0.875C14 1.35825 13.6082 1.75 13.125 1.75Z" fill="black"/></svg>';
+    bttnSubtract.setAttribute('data-index', index);
+
+
+    const divQuantityNumber = document.createElement('div');
+    divQuantityNumber.classList.add('circle-item', 'light-border');
+    divQuantityNumber.innerHTML =  divQuantityNumber.innerHTML = `<input type="number" name="quantity-product" id='quantity-best-product-item-${index}' value="1" class="input-item-quantity">`;
+
+    const bttnAdd = document.createElement('button');
+    bttnAdd.classList.add('circle-item', 'circle-item-add');
+    bttnAdd.type = 'button'
+    bttnAdd.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.125 6.125H7.875V0.875C7.875 0.391754 7.48325 0 7 0C6.51675 0 6.125 0.391754 6.125 0.875V6.125H0.875C0.391754 6.125 0 6.51675 0 7C0 7.48325 0.391754 7.875 0.875 7.875H6.125V13.125C6.125 13.6082 6.51675 14 7 14C7.48325 14 7.875 13.6082 7.875 13.125V7.875H13.125C13.6082 7.875 14 7.48325 14 7C14 6.51675 13.6082 6.125 13.125 6.125Z" fill="black"/></svg>';
+    bttnAdd.setAttribute('data-index', index);
+
+
+    divProduct.classList.add('best-product-item', 'product-item');
+    divProduct.setAttribute('data-index', index);
+
+    imgProduct.classList.add(`best-product-item-img`);
+    imgProduct.src = product.img;
+    imgProduct.alt = product.name;
+
+    flagImg.classList.add('flag-best-item');
+    flagImg.id = `flag-best-item-${index}`;
+    flagImg.src = `../svg/flag-best-item-${index + 1}.svg`;
+
+    divProduct.append(imgProduct, flagImg);
+
+    divTitle.classList.add('item-title', 'best-products-title');
+    divTitle.innerHTML = `<h3>${product.name}</h3>`;
+
+    divProduct.append(divTitle);
+
+    divInfo.classList.add('product-info');
+    divPrice.classList.add('product-price');
+    divPrice.innerHTML = `<p>Preço/KG</p><p>R$ ${product.price.toFixed(2)}</p>`
+
+    divInfo.append(divPrice);
+
+    divQuantity.classList.add('item-quantity');
+    divQuantity.append(bttnSubtract, divQuantityNumber, bttnAdd);
+
+    divInfo.append(divQuantity);
+
+    bttnCart.classList.add('btn-product-item', `button-best-product-${index + 1}`);
+    bttnCart.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+        '                    <path d="M3.58805 12C4.15423 12 4.61321 11.5523 4.61321 11C4.61321 10.4477 4.15423 10 3.58805 10C3.02187 10 2.56289 10.4477 2.56289 11C2.56289 11.5523 3.02187 12 3.58805 12Z" fill="white"/>\n' +
+        '                    <path d="M8.71383 12C9.28001 12 9.73898 11.5523 9.73898 11C9.73898 10.4477 9.28001 10 8.71383 10C8.14765 10 7.68867 10.4477 7.68867 11C7.68867 11.5523 8.14765 12 8.71383 12Z" fill="white"/>\n' +
+        '                    <path d="M11.6422 2.0385C11.498 1.86972 11.3175 1.73398 11.1135 1.64091C10.9095 1.54784 10.6869 1.49973 10.4617 1.5H2.17436L2.15283 1.3245C2.10877 0.959709 1.92903 0.623367 1.64768 0.379239C1.36633 0.135112 1.00292 0.000170897 0.62637 0H0.512578C0.376634 0 0.246258 0.0526785 0.150131 0.146447C0.0540036 0.240215 0 0.367392 0 0.5C0 0.632609 0.0540036 0.759786 0.150131 0.853554C0.246258 0.947322 0.376634 1 0.512578 1H0.62637C0.751918 1.00002 0.873093 1.04498 0.966913 1.12636C1.06073 1.20774 1.12067 1.31988 1.13536 1.4415L1.84067 7.2915C1.91389 7.8999 2.21356 8.4609 2.68279 8.86801C3.15202 9.27512 3.75815 9.50002 4.38613 9.50001H9.73898C9.87493 9.50001 10.0053 9.44733 10.1014 9.35356C10.1976 9.25979 10.2516 9.13261 10.2516 9.00001C10.2516 8.8674 10.1976 8.74022 10.1014 8.64645C10.0053 8.55268 9.87493 8.5 9.73898 8.5H4.38613C4.06887 8.49914 3.75966 8.40257 3.50087 8.22354C3.24209 8.04451 3.04641 7.79178 2.94066 7.5H9.05059C9.65148 7.50004 10.2333 7.29412 10.6943 6.91822C11.1554 6.54233 11.4664 6.02035 11.573 5.4435L11.9754 3.2665C12.0155 3.05051 12.0065 2.82853 11.9489 2.61632C11.8913 2.40411 11.7866 2.20684 11.6422 2.0385ZM10.9692 3.089L10.5663 5.266C10.5023 5.6125 10.3154 5.926 10.0383 6.1516C9.76115 6.37721 9.41153 6.50054 9.05059 6.5H2.77766L2.29532 2.5H10.4617C10.537 2.49956 10.6115 2.51531 10.6798 2.54613C10.7482 2.57695 10.8087 2.62207 10.8572 2.67831C10.9056 2.73454 10.9408 2.80049 10.9601 2.87147C10.9795 2.94245 10.9826 3.01672 10.9692 3.089Z" fill="white"/>\n' +
+        '                  </svg>\n' +
+        '                 Adicionar'
+
+    divInfo.append(bttnCart);
+
+    divProduct.append(divInfo);
+
+    divProduct.id= `product-best-item-${index}`;
+
+    divBody.append(divProduct);
+}
+
+export function CreateCategories(categoryName, category) {
+    const mainDiv = document.querySelector('.category-items');
+    const divContainer = document.createElement('div');
+    divContainer.classList.add('category-item');
+    divContainer.innerHTML = `<div class="item-container-category">${categoryName}</div><p></p>`
+    mainDiv.append(divContainer);
 }

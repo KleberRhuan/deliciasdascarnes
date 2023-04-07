@@ -25,6 +25,8 @@ input:focus {
     margin: 0 auto;
 }
 
+
+
 @media screen and (max-width: 100rem) {
     .max-width-container {
         max-width: 75rem !important;
@@ -609,10 +611,11 @@ img {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1.625rem;
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: auto;
     width: 100% !important;
     gap: 3.75rem;
+    height: 40rem;
 }
 
 .product-item {
@@ -636,6 +639,16 @@ img {
     top: 0;
     left: 0;
     z-index: -1;
+    width: 100% !important;
+    border-radius: 0.125rem 0.9375rem 0.125rem 0.9375rem !important;
+    height: 70% !important;
+}
+
+.best-product-item-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
     width: 100% !important;
     border-radius: 0.125rem 0.9375rem 0.125rem 0.9375rem !important;
     height: 70% !important;
@@ -950,12 +963,21 @@ input::-webkit-inner-spin-button {
 }
 
 .products-container-lateral {
-    width: 100%;
-    height: 28.75rem;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 1rem 2rem;
+    display: flex;
+    gap: 2.5rem;
+    flex-wrap: nowrap;
+    padding-bottom: 4rem;
+    overflow: auto;
+    overflow-clip: auto;
+    padding-left: 2rem;
 }
+
+.products-container-lateral .product-item {
+    flex-shrink: 0;
+    min-width: 200px;
+}
+
+
 
 .exotic-color:hover {
     color:  #5CC41D !important
@@ -1027,12 +1049,24 @@ input::-webkit-inner-spin-button {
     padding: 2rem 4rem !important;
 }
 
-.button-best-product-first {
+.button-best-product-1 {
     border-color: transparent !important;
     background: #CD8F17 !important;
 }
 
-.button-best-product-first:hover {
+.button-best-product-2 {
+    border-color: transparent !important;
+    background: linear-gradient(180deg, #838383 0%, #757070 100%);
+}
+
+.button-best-product-3 {
+    border-color: transparent !important;
+    background: linear-gradient(180deg, #635741 0%, #756952 100%);
+}
+
+
+
+:is(.button-best-product-1, .button-best-product-2, .button-best-product-3, .button-best-product-4, .button-best-product-5):hover {
     color: #000000 !important;
 }
 
@@ -1352,6 +1386,27 @@ i {
 
     /* utilities */
 
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
 .carrousel-background{
     display: flex;
     align-items: center;
@@ -1377,24 +1432,6 @@ i {
     border: 0.0625rem solid #FFFFFF !important;
 }
 
-div::-webkit-scrollbar {
-    width: 0.5rem;
-    background-color: #F5F5F5;
-    border: 0.0625rem solid transparent;
-    border-radius: 0.625rem;
-}
-
-div::-webkit-scrollbar-track {
-    background-color: #F5F5F5;
-    border: 0.0625rem solid #F5F5F5;
-    border-radius: 0.625rem;
-}
-
-div::-webkit-scrollbar-thumb {
-    background-color: #000000;
-    border: 0.0625rem solid #000000;
-    border-radius: 0.625rem;
-}
 
 .light-border {
     border-color: #F0F0F0 !important;
